@@ -36,13 +36,13 @@ class AquaApiApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_task(self, **kwargs):  
-        """create task  
+    def create_task(self, task_detail, **kwargs):
+        """create task
 
-        This api is used to create a task  
+        This api is used to create a task
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_task(async_req=True)
+        >>> thread = api.create_task(task_detail, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -59,15 +59,15 @@ class AquaApiApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_task_with_http_info(**kwargs)  
+        return self.create_task_with_http_info(task_detail, **kwargs)
 
-    def create_task_with_http_info(self, **kwargs):  
-        """create task  
+    def create_task_with_http_info(self, task_detail, **kwargs):
+        """create task
 
-        This api is used to create a task  
+        This api is used to create a task
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_task_with_http_info(async_req=True)
+        >>> thread = api.create_task_with_http_info(task_detail, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -88,7 +88,7 @@ class AquaApiApi(object):
 
         local_var_params = locals()
 
-        all_params = ['task_detail']  
+        all_params = ['task_detail']
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -119,14 +119,14 @@ class AquaApiApi(object):
             body_params = local_var_params['task_detail']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  
+            ['application/json'])
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  
-            ['application/json'])  
+        header_params['Content-Type'] = self.api_client.select_header_content_type(
+            ['application/json'])
 
         # Authentication setting
-        auth_settings = []  
+        auth_settings = []
 
         return self.api_client.call_api(
             '/tasks', 'POST',
@@ -136,18 +136,18 @@ class AquaApiApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='TaskID',  
+            response_type='TaskID',
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_task(self, task_id, **kwargs):  
-        """delete task  
+    def delete_task(self, task_id, **kwargs):
+        """delete task
 
-        This api is used to delete the task  
+        This api is used to delete the task
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_task(task_id, async_req=True)
@@ -167,12 +167,12 @@ class AquaApiApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.delete_task_with_http_info(task_id, **kwargs)  
+        return self.delete_task_with_http_info(task_id, **kwargs)
 
-    def delete_task_with_http_info(self, task_id, **kwargs):  
-        """delete task  
+    def delete_task_with_http_info(self, task_id, **kwargs):
+        """delete task
 
-        This api is used to delete the task  
+        This api is used to delete the task
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_task_with_http_info(task_id, async_req=True)
@@ -196,7 +196,7 @@ class AquaApiApi(object):
 
         local_var_params = locals()
 
-        all_params = ['task_id']  
+        all_params = ['task_id']
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -213,13 +213,13 @@ class AquaApiApi(object):
         # verify the required parameter 'task_id' is set
         if ('task_id' not in local_var_params or
                 local_var_params['task_id'] is None):
-            raise ApiValueError("Missing the required parameter `task_id` when calling `delete_task`")  
+            raise ApiValueError("Missing the required parameter `task_id` when calling `delete_task`")
 
         collection_formats = {}
 
         path_params = {}
         if 'task_id' in local_var_params:
-            path_params['task_id'] = local_var_params['task_id']  
+            path_params['task_id'] = local_var_params['task_id']
 
         query_params = []
 
@@ -231,10 +231,10 @@ class AquaApiApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  
+            ['application/json'])
 
         # Authentication setting
-        auth_settings = []  
+        auth_settings = []
 
         return self.api_client.call_api(
             '/tasks/{task_id}', 'DELETE',
@@ -244,18 +244,18 @@ class AquaApiApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='TaskID',  
+            response_type='TaskID',
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_task(self, task_id, **kwargs):  
-        """get the task details  
+    def get_task(self, task_id, **kwargs):
+        """get the task details
 
-        This api is used to get the task details  
+        This api is used to get the task details
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_task(task_id, async_req=True)
@@ -275,12 +275,12 @@ class AquaApiApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_task_with_http_info(task_id, **kwargs)  
+        return self.get_task_with_http_info(task_id, **kwargs)
 
-    def get_task_with_http_info(self, task_id, **kwargs):  
-        """get the task details  
+    def get_task_with_http_info(self, task_id, **kwargs):
+        """get the task details
 
-        This api is used to get the task details  
+        This api is used to get the task details
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_task_with_http_info(task_id, async_req=True)
@@ -304,7 +304,7 @@ class AquaApiApi(object):
 
         local_var_params = locals()
 
-        all_params = ['task_id']  
+        all_params = ['task_id']
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -321,13 +321,13 @@ class AquaApiApi(object):
         # verify the required parameter 'task_id' is set
         if ('task_id' not in local_var_params or
                 local_var_params['task_id'] is None):
-            raise ApiValueError("Missing the required parameter `task_id` when calling `get_task`")  
+            raise ApiValueError("Missing the required parameter `task_id` when calling `get_task`")
 
         collection_formats = {}
 
         path_params = {}
         if 'task_id' in local_var_params:
-            path_params['task_id'] = local_var_params['task_id']  
+            path_params['task_id'] = local_var_params['task_id']
 
         query_params = []
 
@@ -339,10 +339,10 @@ class AquaApiApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  
+            ['application/json'])
 
         # Authentication setting
-        auth_settings = []  
+        auth_settings = []
 
         return self.api_client.call_api(
             '/tasks/{task_id}', 'GET',
@@ -352,18 +352,18 @@ class AquaApiApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='TaskDetail',  
+            response_type='TaskDetail',
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_tasks(self, **kwargs):  
-        """listing taks  
+    def list_tasks(self, **kwargs):
+        """listing taks
 
-        This api is used to list al stacks  
+        This api is used to list al stacks
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_tasks(async_req=True)
@@ -382,12 +382,12 @@ class AquaApiApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.list_tasks_with_http_info(**kwargs)  
+        return self.list_tasks_with_http_info(**kwargs)
 
-    def list_tasks_with_http_info(self, **kwargs):  
-        """listing taks  
+    def list_tasks_with_http_info(self, **kwargs):
+        """listing taks
 
-        This api is used to list al stacks  
+        This api is used to list al stacks
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_tasks_with_http_info(async_req=True)
@@ -410,7 +410,7 @@ class AquaApiApi(object):
 
         local_var_params = locals()
 
-        all_params = []  
+        all_params = []
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -439,10 +439,10 @@ class AquaApiApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  
+            ['application/json'])
 
         # Authentication setting
-        auth_settings = []  
+        auth_settings = []
 
         return self.api_client.call_api(
             '/tasks', 'GET',
@@ -452,18 +452,18 @@ class AquaApiApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[object]',  
+            response_type='list[object]',
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def mark_task_completed(self, task_id, **kwargs):  
-        """Mark existing task as completed  
+    def mark_task_completed(self, task_id, **kwargs):
+        """Mark existing task as completed
 
-        This api is used to mark existing task as completed  
+        This api is used to mark existing task as completed
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.mark_task_completed(task_id, async_req=True)
@@ -483,12 +483,12 @@ class AquaApiApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.mark_task_completed_with_http_info(task_id, **kwargs)  
+        return self.mark_task_completed_with_http_info(task_id, **kwargs)
 
-    def mark_task_completed_with_http_info(self, task_id, **kwargs):  
-        """Mark existing task as completed  
+    def mark_task_completed_with_http_info(self, task_id, **kwargs):
+        """Mark existing task as completed
 
-        This api is used to mark existing task as completed  
+        This api is used to mark existing task as completed
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.mark_task_completed_with_http_info(task_id, async_req=True)
@@ -512,7 +512,7 @@ class AquaApiApi(object):
 
         local_var_params = locals()
 
-        all_params = ['task_id']  
+        all_params = ['task_id']
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -529,13 +529,13 @@ class AquaApiApi(object):
         # verify the required parameter 'task_id' is set
         if ('task_id' not in local_var_params or
                 local_var_params['task_id'] is None):
-            raise ApiValueError("Missing the required parameter `task_id` when calling `mark_task_completed`")  
+            raise ApiValueError("Missing the required parameter `task_id` when calling `mark_task_completed`")
 
         collection_formats = {}
 
         path_params = {}
         if 'task_id' in local_var_params:
-            path_params['task_id'] = local_var_params['task_id']  
+            path_params['task_id'] = local_var_params['task_id']
 
         query_params = []
 
@@ -547,10 +547,10 @@ class AquaApiApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  
+            ['application/json'])
 
         # Authentication setting
-        auth_settings = []  
+        auth_settings = []
 
         return self.api_client.call_api(
             '/tasks/{task_id}/completed', 'POST',
@@ -560,18 +560,18 @@ class AquaApiApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  
+            response_type='object',
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def mark_task_incomplete(self, task_id, **kwargs):  
-        """mark task incomplete  
+    def mark_task_incomplete(self, task_id, **kwargs):
+        """mark task incomplete
 
-        This api is used to mark an existing task as incomplete  
+        This api is used to mark an existing task as incomplete
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.mark_task_incomplete(task_id, async_req=True)
@@ -591,12 +591,12 @@ class AquaApiApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.mark_task_incomplete_with_http_info(task_id, **kwargs)  
+        return self.mark_task_incomplete_with_http_info(task_id, **kwargs)
 
-    def mark_task_incomplete_with_http_info(self, task_id, **kwargs):  
-        """mark task incomplete  
+    def mark_task_incomplete_with_http_info(self, task_id, **kwargs):
+        """mark task incomplete
 
-        This api is used to mark an existing task as incomplete  
+        This api is used to mark an existing task as incomplete
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.mark_task_incomplete_with_http_info(task_id, async_req=True)
@@ -620,7 +620,7 @@ class AquaApiApi(object):
 
         local_var_params = locals()
 
-        all_params = ['task_id']  
+        all_params = ['task_id']
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -637,13 +637,13 @@ class AquaApiApi(object):
         # verify the required parameter 'task_id' is set
         if ('task_id' not in local_var_params or
                 local_var_params['task_id'] is None):
-            raise ApiValueError("Missing the required parameter `task_id` when calling `mark_task_incomplete`")  
+            raise ApiValueError("Missing the required parameter `task_id` when calling `mark_task_incomplete`")
 
         collection_formats = {}
 
         path_params = {}
         if 'task_id' in local_var_params:
-            path_params['task_id'] = local_var_params['task_id']  
+            path_params['task_id'] = local_var_params['task_id']
 
         query_params = []
 
@@ -655,10 +655,10 @@ class AquaApiApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  
+            ['application/json'])
 
         # Authentication setting
-        auth_settings = []  
+        auth_settings = []
 
         return self.api_client.call_api(
             '/tasks/{task_id}/incomplete', 'POST',
@@ -668,21 +668,21 @@ class AquaApiApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='object',  
+            response_type='object',
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def modify_task(self, task_id, **kwargs):  
-        """modify tasks  
+    def modify_task(self, task_id, task_detail, **kwargs):
+        """modify tasks
 
-        This api is used to modify task  
+        This api is used to modify task
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.modify_task(task_id, async_req=True)
+        >>> thread = api.modify_task(task_id, task_detail, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -700,15 +700,15 @@ class AquaApiApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.modify_task_with_http_info(task_id, **kwargs)  
+        return self.modify_task_with_http_info(task_id, task_detail, **kwargs)
 
-    def modify_task_with_http_info(self, task_id, **kwargs):  
-        """modify tasks  
+    def modify_task_with_http_info(self, task_id, task_detail, **kwargs):
+        """modify tasks
 
-        This api is used to modify task  
+        This api is used to modify task
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.modify_task_with_http_info(task_id, async_req=True)
+        >>> thread = api.modify_task_with_http_info(task_id, task_detail, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -730,7 +730,7 @@ class AquaApiApi(object):
 
         local_var_params = locals()
 
-        all_params = ['task_id', 'task_detail']  
+        all_params = ['task_id', 'task_detail']
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -747,13 +747,13 @@ class AquaApiApi(object):
         # verify the required parameter 'task_id' is set
         if ('task_id' not in local_var_params or
                 local_var_params['task_id'] is None):
-            raise ApiValueError("Missing the required parameter `task_id` when calling `modify_task`")  
+            raise ApiValueError("Missing the required parameter `task_id` when calling `modify_task`")
 
         collection_formats = {}
 
         path_params = {}
         if 'task_id' in local_var_params:
-            path_params['task_id'] = local_var_params['task_id']  
+            path_params['task_id'] = local_var_params['task_id']
 
         query_params = []
 
@@ -767,14 +767,14 @@ class AquaApiApi(object):
             body_params = local_var_params['task_detail']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  
+            ['application/json'])
 
         # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  
-            ['application/json'])  
+        header_params['Content-Type'] = self.api_client.select_header_content_type(
+            ['application/json'])
 
         # Authentication setting
-        auth_settings = []  
+        auth_settings = []
 
         return self.api_client.call_api(
             '/tasks/{task_id}', 'PUT',
@@ -784,10 +784,10 @@ class AquaApiApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='TaskID',  
+            response_type='TaskID',
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)

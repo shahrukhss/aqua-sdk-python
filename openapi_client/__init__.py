@@ -30,4 +30,4 @@ from openapi_client.exceptions import ApiException
 # import models into sdk package
 from openapi_client.models.task_detail import TaskDetail
 from openapi_client.models.task_id import TaskID
-
+from openapi_client.logger.logger import Logger

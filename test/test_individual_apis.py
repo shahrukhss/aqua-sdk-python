@@ -23,7 +23,8 @@ class TestAquaApiApi(unittest.TestCase):
     """AquaApiApi unit test stubs"""
 
     def setUp(self):
-        self.api = openapi_client.api.aqua_api_api.AquaApiApi()  
+        self.api = openapi_client.api.aqua_api_api.AquaApiApi()
+
 
     def tearDown(self):
         pass
@@ -33,6 +34,9 @@ class TestAquaApiApi(unittest.TestCase):
 
         create task  
         """
+        task_detail = openapi_client.TaskDetail(task="CheckAPI", completed=False)
+        resp = self.api.create_task(task_detail)
+        print(resp)
         pass
 
     def test_delete_task(self):
@@ -40,6 +44,8 @@ class TestAquaApiApi(unittest.TestCase):
 
         delete task  
         """
+        resp = self.api.delete_task('VtSbPpQ4')
+        print(resp)
         pass
 
     def test_get_task(self):
@@ -47,6 +53,8 @@ class TestAquaApiApi(unittest.TestCase):
 
         get the task details  
         """
+        resp = self.api.get_task('FuWRtoV0')
+        print(resp)
         pass
 
     def test_list_tasks(self):
@@ -54,6 +62,8 @@ class TestAquaApiApi(unittest.TestCase):
 
         listing taks  
         """
+        resp = self.api.list_tasks()
+        print(resp)
         pass
 
     def test_mark_task_completed(self):
@@ -61,6 +71,8 @@ class TestAquaApiApi(unittest.TestCase):
 
         Mark existing task as completed  
         """
+        resp = self.api.mark_task_completed('FuWRtoV0')
+        print(resp)
         pass
 
     def test_mark_task_incomplete(self):
@@ -68,6 +80,8 @@ class TestAquaApiApi(unittest.TestCase):
 
         mark task incomplete  
         """
+        resp = self.api.mark_task_incomplete('FuWRtoV0')
+        print(resp)
         pass
 
     def test_modify_task(self):
@@ -75,6 +89,9 @@ class TestAquaApiApi(unittest.TestCase):
 
         modify tasks  
         """
+        task_detail = openapi_client.TaskDetail(task="modified task", completed=False)
+        resp = self.api.modify_task('FuWRtoV0', task_detail)
+        print(resp)
         pass
 
 
