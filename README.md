@@ -48,6 +48,11 @@ Then import the package:
 ```python
 import openapi_client
 ```
+## Run the test Cases I designed for testing the Aqua-todo-automation challenge
+```sh
+pytest -v --capture=no --html=output/report.html test/test_aqua_api.py
+```
+output html can be found in ./output folder 
 
 ## Getting Started
 
